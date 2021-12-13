@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: galp-deployment
+spec:
+  selector:
+    matchLabels:
+      app: galp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: galp
+    spec:
+      containers:
+      - name: galp-challenge
+        image: galp-challenge:0.0.3
+        ports:
+        - containerPort: 80
+          protocol: TCP
